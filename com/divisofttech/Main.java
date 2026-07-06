@@ -249,6 +249,7 @@ public class Main {
         while (running) {
 
             System.out.println("\n========== CLASSROOMS ==========");
+            System.out.println("Changes made from original project");
 
             for (int i = 0; i < classrooms.length; i++) {
 
