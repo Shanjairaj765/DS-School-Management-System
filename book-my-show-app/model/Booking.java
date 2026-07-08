@@ -1,58 +1,36 @@
 package model;
+
 public class Booking {
 
-    private int bookingId;
-    private User user;
-    private Show show;
-    private int numberOfSeats;
+    private String bookingId;
     private double totalAmount;
+    private boolean isPaid;
+    private boolean isConfirmed;
 
-    public Booking(int bookingId, User user, Show show,
-                   int numberOfSeats, double totalAmount) {
+    public Booking(String bookingId, double totalAmount) {
         this.bookingId = bookingId;
-        this.user = user;
-        this.show = show;
-        this.numberOfSeats = numberOfSeats;
         this.totalAmount = totalAmount;
+        this.isPaid = false;
+        this.isConfirmed = false;
     }
 
-    public int getBookingId() {
+    public String getBookingId() {
         return bookingId;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public Show getShow() {
-        return show;
-    }
-
-    public int getNumberOfSeats() {
-        return numberOfSeats;
     }
 
     public double getTotalAmount() {
         return totalAmount;
     }
 
-    public void setBookingId(int bookingId) {
-        this.bookingId = bookingId;
+    public boolean isPaid() {
+        return isPaid;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public boolean isConfirmed() {
+        return isConfirmed;
     }
 
-    public void setShow(Show show) {
-        this.show = show;
-    }
-
-    public void setNumberOfSeats(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
-    }
-
-    public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
+    public void confirmBooking() {
+        isConfirmed = true;
     }
 }

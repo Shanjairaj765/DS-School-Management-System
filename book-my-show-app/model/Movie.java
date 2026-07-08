@@ -2,47 +2,31 @@ package model;
 
 public class Movie {
 
-    private int movieId;
-    private String movieName;
-    private String language;
-    private int duration;
+    private String title;
+    private String genre;
+    private int durationMinutes;
 
-    public Movie(int movieId, String movieName, String language, int duration) {
-        this.movieId = movieId;
-        this.movieName = movieName;
-        this.language = language;
-        this.duration = duration;
+    public Movie(String title, String genre, int durationMinutes) {
+        this.title = title;
+        this.genre = genre;
+        this.durationMinutes = durationMinutes;
     }
 
-    public int getMovieId() {
-        return movieId;
+    public String getTitle() {
+        return title;
     }
 
-    public String getMovieName() {
-        return movieName;
+    public String getGenre() {
+        return genre;
     }
 
-    public String getLanguage() {
-        return language;
+    public int getDurationMinutes() {
+        return durationMinutes;
     }
 
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setMovieId(int movieId) {
-        this.movieId = movieId;
-    }
-
-    public void setMovieName(String movieName) {
-        this.movieName = movieName;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public void getDetails() {
+        System.out.println("Movie Title: " + title);
+        System.out.println("Genre: " + genre);
+        System.out.println("Duration: " + durationMinutes + " minutes");
     }
 }

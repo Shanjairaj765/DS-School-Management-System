@@ -2,37 +2,23 @@ package model;
 
 public class Theatre {
 
-    private int theatreId;
-    private String theatreName;
-    private String location;
+    private String name;
+    private String city;
 
-    public Theatre(int theatreId, String theatreName, String location) {
-        this.theatreId = theatreId;
-        this.theatreName = theatreName;
-        this.location = location;
+    public Theatre(String name, String city) {
+        this.name = name;
+        this.city = city;
     }
 
-    public int getTheatreId() {
-        return theatreId;
+    public String getName() {
+        return name;
     }
 
-    public String getTheatreName() {
-        return theatreName;
+    public String getCity() {
+        return city;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setTheatreId(int theatreId) {
-        this.theatreId = theatreId;
-    }
-
-    public void setTheatreName(String theatreName) {
-        this.theatreName = theatreName;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
+    public void getAvailableShows() {
+        System.out.println("Showing available shows in " + name);
     }
 }

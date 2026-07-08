@@ -1,15 +1,34 @@
 package controller;
+
 import model.Booking;
+import model.Customer;
+import model.Show;
+import model.Seat;
+
+import java.util.List;
+
 public class BookingController {
 
-    public void bookTicket(Booking booking) {
-        System.out.println("Booking successful!");
-        System.out.println("Booking ID: " + booking.getBookingId());
-        System.out.println("Number of seats: " + booking.getNumberOfSeats());
-        System.out.println("Total amount: " + booking.getTotalAmount());
+    public Booking processBooking(Customer customer,
+                                  Show show,
+                                  List<Seat> seats) {
+
+        double totalAmount = 0;
+
+        for (Seat seat : seats) {
+            seat.bookSeat();
+            totalAmount += seat.getPrice();
+        }
+
+        Booking booking = new Booking("B001", totalAmount);
+        booking.confirmBooking();
+
+        System.out.println("Booking confirmed successfully!");
+
+        return booking;
     }
 
-    public void cancelBooking(Booking booking) {
-        System.out.println("Booking " + booking.getBookingId() + " cancelled successfully!");
+    public void cancelBooking(String bookingId) {
+        System.out.println("Booking " + bookingId + " cancelled successfully.");
     }
 }
