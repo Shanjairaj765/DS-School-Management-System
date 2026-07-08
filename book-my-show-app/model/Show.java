@@ -8,7 +8,9 @@ public class Show {
     private String showTime;
     private int availableSeats;
 
-    public Show(int showId, Movie movie, Theatre theatre, String showTime, int availableSeats) {
+    public Show(int showId, Movie movie, Theatre theatre,
+                String showTime, int availableSeats) {
+
         this.showId = showId;
         this.movie = movie;
         this.theatre = theatre;
@@ -36,23 +38,17 @@ public class Show {
         return availableSeats;
     }
 
-    public void setShowId(int showId) {
-        this.showId = showId;
-    }
+    public boolean bookSeats(int count) {
 
-    public void setMovie(Movie movie) {
-        this.movie = movie;
-    }
+        if (count <= 0) {
+            return false;
+        }
 
-    public void setTheatre(Theatre theatre) {
-        this.theatre = theatre;
-    }
+        if (count <= availableSeats) {
+            availableSeats = availableSeats - count;
+            return true;
+        }
 
-    public void setShowTime(String showTime) {
-        this.showTime = showTime;
-    }
-
-    public void setAvailableSeats(int availableSeats) {
-        this.availableSeats = availableSeats;
+        return false;
     }
 }

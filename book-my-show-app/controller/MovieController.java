@@ -1,15 +1,43 @@
 package controller;
 
 import model.Movie;
-import model.Theatre;
+import model.Show;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MovieController {
 
-    public void searchMovies(String keyword) {
-        System.out.println("Searching for movie: " + keyword);
+    private List<Movie> movies;
+    private List<Show> shows;
+
+    public MovieController(List<Movie> movies, List<Show> shows) {
+        this.movies = movies;
+        this.shows = shows;
     }
 
-    public void displayShows(Theatre theatre, Movie movie) {
-        System.out.println("Displaying shows for: " + movie.getTitle());
+    public Movie searchMovies(String keyword) {
+
+        for (Movie movie : movies) {
+            if (movie.getTitle().equalsIgnoreCase(keyword)) {
+                return movie;
+            }
+        }
+
+        return null;
+    }
+
+    public List<Show> displayShows(Movie movie) {
+
+        List<Show> matchingShows = new ArrayList<>();
+
+        for (Show show : shows) {
+            if (show.getMovie().getTitle()
+                    .equalsIgnoreCase(movie.getTitle())) {
+
+                matchingShows.add(show);
+            }
+        }
+
+        return matchingShows;
     }
 }
