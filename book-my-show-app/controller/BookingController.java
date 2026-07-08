@@ -1,3 +1,5 @@
+package controller;
+import model.Booking;
 public class BookingController {
 
     public void bookTicket(Booking booking) {
